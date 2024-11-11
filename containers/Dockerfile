@@ -5,7 +5,7 @@ RUN pacman -Syu --noconfirm && \
     pacman -S --noconfirm curl git postgresql-libs postgresql rustup gcc perl
 
 # Other nice to haves for development / interactive use
-RUN pacman -S --noconfirm neovim nushell fish tmux bat ripgrep fd fzf
+RUN pacman -S --noconfirm neovim emacs nushell fish tmux bat ripgrep fd fzf less tree
 
 # Add rustup and cargo to the PATH
 ENV PATH="/root/.cargo/bin:${PATH}"
