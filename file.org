@@ -1,0 +1,17 @@
+#+title: File
+
+* Installation
+** Interacting with the docker container
+
+#+begin_src bash
+docker compose exec -it app /bin/sh
+# Or
+docker compose exec -it app /bin/fish
+docker compose exec -it app /usr/sbin/nu
+#+end_src
+** Initial Installation
+#+begin_src bash
+docker compose exec -it app /bin/fish
+cd /root/draftsmith_rs/draftsmith_rs_api
+diesel migration run --migration-dir migrations --database-url $DATABASE_URL
+#+end_src

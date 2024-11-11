@@ -2,7 +2,7 @@
 resolver = "2"
 members = [
     "draftsmith_render",
-    "draftsmith_rest_api",
+    "draftsmith_rs_api",
     # TODO: Right now this is in flask, but will become axum
     "draftsmith_web_app"
 ]
