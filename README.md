@@ -20,6 +20,21 @@ TODO
 ## Usage
 
 TODO
+
+
+## Screenshots
+
+These screenshots are from the Flask application, I'm actively developing an Axum web app, PyQt application and hopefully something in Iced or Tauri (`#TODO`). There are `fzf` / `skim` scripts to open notes in `$EDITOR` (WIP).
+
+<details closed><summary>
+
+Screenshots
+</summary>
+
+![](./assets/screenshots/montage_screenshots.png)
+</details>
+
+
 ## Development
 
 PRs are welcome! Please follow the guidelines below:
