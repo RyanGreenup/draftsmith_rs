@@ -8,9 +8,7 @@ Meta Repository for Draftsmith.
 
 Draftsmith is a modern note-taking and task management system built with a focus on performance, type safety, and flexibility. It allows you to organize your thoughts, tasks, and knowledge in a hierarchical structure while maintaining relationships between different pieces of information through tags and parent-child relationships.
 
-Most importantly, Draftsmith is hackable! It allows both client side scripting in [Rhai](https://rhai.rs/book/about/index.html) and client side scripting in Javascript with no HTML sanitization. This flexibility makes a great thinking space to tinker with ideas and automate workflows.
-
-
+Most importantly, Draftsmith is hackable! It allows both client side scripting in Javascript with no HTML sanitization and server side scripting in [Rhai](https://rhai.rs/book/about/index.html) (with built in functions registed directly from the server). This flexibility makes a great thinking space to tinker with ideas and automate workflows.
 
 
 ## Installation
