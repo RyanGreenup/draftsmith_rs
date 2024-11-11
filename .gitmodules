@@ -7,3 +7,6 @@
 [submodule "draftsmith_rs_api"]
 	path = draftsmith_rs_api
 	url = https://github.com/RyanGreenup/draftsmith_rs_api
+[submodule "draftsmith_rs_py_client"]
+	path = draftsmith_rs_py_client
+	url = https://github.com/RyanGreenup/draftsmith_rs_py_client
