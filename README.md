@@ -12,7 +12,7 @@ Most importantly, Draftsmith is hackable! It allows both client side scripting i
 
 ## Inspiration
 
-I built Draftsmith because I used to love PHP scripts on Dokuwiki, I wanted a markdown and rust based version of that with a REST API so I could connect it to Vim and Emacs. Most importantly I wanted to be able to create macros like [Typst](https://typst.app/docs/) So I could automate things (easily) like this:
+I built Draftsmith because I used to love PHP scripts on Dokuwiki, I wanted a markdown and Rust based version of that with a REST API so I could connect it to Vim and Emacs. Most importantly I wanted to be able to create macros like [Typst](https://typst.app/docs/) automate things (easily) like this:
 
 ```rust
 let g = gallery(
@@ -55,7 +55,8 @@ HTML
 Screenshot
 </summary>
 
-![Screenshot](./assets/gallery_screenshot.png)
+
+<p><img src="./assets/gallery_screenshot.png" style="float: left; width: 160px" /></p>
 </details>
 
 
