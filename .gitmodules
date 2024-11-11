@@ -1,0 +1,9 @@
+[submodule "draftsmith_flask"]
+	path = draftsmith_flask
+	url = https://github.com/RyanGreenup/draftsmith_flask
+[submodule "draftsmith_render"]
+	path = draftsmith_render
+	url = https://github.com/RyanGreenup/draftsmith_render
+[submodule "draftsmith_rs_api"]
+	path = draftsmith_rs_api
+	url = https://github.com/RyanGreenup/draftsmith_rs_api
