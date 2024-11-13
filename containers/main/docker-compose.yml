@@ -8,7 +8,7 @@ services:
     volumes:
       - ./data/draftsmith:/usr/src/app
       - ./scripts/entrypoint.sh:/usr/local/bin/entrypoint.sh
-      - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo:/root/draftsmith_rs
+    # - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo:/root/draftsmith_rs
     working_dir: /usr/src/app
     entrypoint: ["/usr/local/bin/entrypoint.sh"]
     environment:
@@ -35,7 +35,7 @@ services:
       - ./data/web:/usr/src/app
       - ./scripts/web_entrypoint.sh:/usr/local/bin/entrypoint.sh
 # Uncomment for Dev
-      - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo/draftsmith_flask:/root/draftsmith_rs/draftsmith_flask
+#     - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo/draftsmith_flask:/root/draftsmith_rs/draftsmith_flask
     working_dir: /usr/src/app
     entrypoint: ["/usr/local/bin/entrypoint.sh"]
     environment:
