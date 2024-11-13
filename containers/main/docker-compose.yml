@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data/draftsmith:/usr/src/app
+      - ./scripts/entrypoint.sh:/usr/local/bin/entrypoint.sh
+      - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo:/root/draftsmith_rs
+    working_dir: /usr/src/app
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
+    environment:
+      DATABASE_URL: postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}
+      PGPASSWORD: ${PGPASSWORD}
+      PGUSER: ${PGUSER}
+      PGHOST: postgres
+      PGPORT: 5432
+      PGDATABASE: draftsmith2
+      API_PORT: ${API_PORT}
+      API_HOST: ${API_HOST}
+    depends_on:
+      - postgres
+    ports:
+      # This does not necessarily need to be exposed:
+      # docker compose exec -it app draftsmith client --url 'http://localhost:'$API_PORT notes tree | jq
+      - "${API_PORT}:${API_PORT}"
+
+  web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./data/web:/usr/src/app
+      - ./scripts/web_entrypoint.sh:/usr/local/bin/entrypoint.sh
+# Uncomment for Dev
+      - /home/ryan/Sync/Projects/draftsmith_rs_meta_repo/draftsmith_flask:/root/draftsmith_rs/draftsmith_flask
+    working_dir: /usr/src/app
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
+    environment:
+      API_SCHEME: ${API_SCHEME}
+      API_PORT: ${API_PORT}
+      API_HOST: ${API_HOST}
+      WEB_PORT: ${WEB_PORT}
+      CSRF_SECRET_KEY: ${CSRF_SECRET_KEY}
+    depends_on:
+      - postgres
+      - app
+      # - init_db
+    ports:
+      - "${WEB_PORT}:${WEB_PORT}"
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - ./data/pgdata:/var/lib/postgresql/data
