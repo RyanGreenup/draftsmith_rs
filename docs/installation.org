@@ -1,0 +1,102 @@
+#+title: Installation
+
+* Installation
+** Docker
+*** Installation
+Draftsmith can be installed and configured entirely through Docker, this will include the API, database and Web App:
+
+#+begin_src bash
+git clone https://github.com/RyanGreenup/draftsmith_rs
+cd draftsmith_rs/containers/main
+docker compose up
+#+end_src
+
+*** Details
+This will build a container with some dependencies and:
+
+- a clone of:
+  - [[https://github.com/RyanGreenup/draftsmith_rs_py_client][draftsmith_rs_py_client]]
+  - [[https://github.com/RyanGreenup/draftsmith_flask][draftsmith_flask]]
+  - [[https://github.com/RyanGreenup/draftsmith_render ][draftsmith_render]]
+  - [[https://github.com/RyanGreenup/draftsmith_rs_api][draftsmith_rs_api]]
+- Compiled version of
+  - CLI for [[https://github.com/RyanGreenup/draftsmith_rs_api][draftsmith_rs_api]]
+- Virtual Environment for [[https://github.com/RyanGreenup/draftsmith_flask][draftsmith_flask]]
+
+The =docker-compose.yml= will create 3 services:
+
+- =postgres=
+  - The database storing all the data
+- =app=
+  - This is the Rest API that communicates with the database
+  - =scripts/entrypoint.sh= will check for a marker file and if it's not found:
+    - 1. Create a database
+    - 2. Initialize that dabase with tables etc. (using diesel migrations)
+- =web-app=
+  - The web application communicating with the REST API
+    - =scripts/web_entrypoint.sh= will source the virtual environmnent (created in the image) and run the web app
+*** Interactions
+Users can jump inside the container to interact directly with the REST API or database if they wish:
+
+#+begin_src bash
+docker compose exec -it app /bin/sh
+# Or
+docker compose exec -it app /bin/fish
+docker compose exec -it app /usr/sbin/nu
+#+end_src
+
+Or call the client without forwarding the REST API to the system:
+
+#+begin_src bash
+# change this according to the docker-compose
+API_PORT=37242
+docker compose exec -it app draftsmith client --url 'http://localhost:'$API_PORT notes tree | jq
+#+end_src
+
+** Manual
+These steps are all handled by docker through =scripts/entrypoint.sh= and =scripts/web_entrypoint.sh=. Users are encouraged to refer to these as a source of truth.
+
+Manual installation is ideal for users who already have a database they wish to use or who wish to modify the source code.
+
+*** Installation
+Users will need a postgres database accessible (A =docker-compose.yml= is included in this repo), the port and host can be set as arguments to the draftsmith cli.
+
+#+begin_src bash
+# Create a Database
+PGPASSWORD=postgres createdb --host=postgres-db --port=5432 --username=postgres draftsmith2 || true
+
+# Clone the repositories (This is handled in Dockerfile)
+git clone --recurse-submodules https://github.com/RyanGreenup/draftsmith_rs $HOME/draftsmith_rs
+
+# Run Diesel migrations
+cd $HOME/draftsmith_rs/draftsmith_rs_api
+diesel migration run --migration-dir migrations --database-url "$DATABASE_URL"
+# There is a =.env= in draftsmith_rs_api with the correct details
+
+# Build the project (The binary is is $HOME/draftsmith_rs/target/cli)
+cargo build --release
+# Install the project
+cargo install --path .
+#+end_src
+
+*** Serve API
+#+begin_src bash
+# Rename binary for local installations
+mv ~/.cargo/bin/cli ~/.cargo/bin/draftsmith
+# Serve
+draftsmith -a '0.0.0.0:37240'
+#+end_src
+*** Test the API
+#+begin_src bash
+# Curl
+curl http://localhost:37240/notes/flat | jq
+
+# Rust Client / CLI
+draftsmith client notes flat list | jq
+#+end_src
+*** Web App
+#+begin_src bash
+git clone
+poetry install deps
+poetry run gunicorn -w 4 -b 0.0.0.0:5000 server:app
+#+end_src

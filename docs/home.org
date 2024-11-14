@@ -1,0 +1,22 @@
+#+title: Draftsmith Documentation
+
+
+#+attr_html: :width 400px
+#+attr_latex: :width 0.5\textwidth
+[[file:~/Sync/Projects/draftsmith_rs_meta_repo/assets/logo.png]]
+
+* Introduction
+** What is Draftsmith?
+Draftsmith is a modern note-taking and task management system built with a focus on performance, type safety, and flexibility. It allows you to organize your thoughts, tasks, and knowledge in a hierarchical structure while maintaining relationships between different pieces of information through tags and parent-child relationships.
+
+Most importantly, Draftsmith is hackable! It allows both client side scripting in Javascript with no HTML sanitization and server side scripting in [Rhai](https://rhai.rs/book/about/index.html) (with built in functions registed directly from the server). This flexibility makes a great thinking space to tinker with ideas and automate workflows.
+* Contents
+
+- [[file:installation.org][Installation]]
+- Usage
+- [[file:rhai-code.org][Rhai Code]]
+
+
+* Screenshots
+
+[[file:~/Sync/Projects/draftsmith_rs_meta_repo/assets/screenshots/montage_screenshots.png]]
