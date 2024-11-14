@@ -3,7 +3,7 @@
 
 #+attr_html: :width 400px
 #+attr_latex: :width 0.5\textwidth
-[[file:~/Sync/Projects/draftsmith_rs_meta_repo/assets/logo.png]]
+[[../assets/logo.png]]
 
 * Introduction
 ** What is Draftsmith?
@@ -19,4 +19,4 @@ Most importantly, Draftsmith is hackable! It allows both client side scripting i
 
 * Screenshots
 
-[[file:~/Sync/Projects/draftsmith_rs_meta_repo/assets/screenshots/montage_screenshots.png]]
+[[../assets/screenshots/montage_screenshots.png]]
