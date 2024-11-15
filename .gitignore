@@ -1,2 +1,5 @@
 containers/main/data
 containers/data
+target
+.aider.chat.history.md
+.aider.input.history
