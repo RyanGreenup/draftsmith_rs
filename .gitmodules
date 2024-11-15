@@ -10,3 +10,6 @@
 [submodule "draftsmith_rs_py_client"]
 	path = draftsmith_rs_py_client
 	url = https://github.com/RyanGreenup/draftsmith_rs_py_client
+[submodule "draftsmith_axum_web-app"]
+	path = draftsmith_axum_web-app
+	url = https://github.com/RyanGreenup/draftsmith_axum_web-app
