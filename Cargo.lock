@@ -751,12 +751,12 @@ version = "0.1.0"
 dependencies = [
  "axum",
  "clap",
- "draftsmith_rs_api",
  "include_dir",
  "lazy_static",
  "mime_guess",
  "minijinja",
  "once_cell",
+ "rust-cli-app",
  "serde",
  "serde_json",
  "templates",
@@ -771,44 +771,6 @@ dependencies = [
  "comrak",
  "regex",
  "rhai",
-]
-
-[[package]]
-name = "draftsmith_rs_api"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "assert_cmd",
- "axum",
- "axum-extra",
- "axum-test",
- "bigdecimal",
- "chrono",
- "clap",
- "diesel",
- "dotenv",
- "draftsmith_render",
- "futures",
- "glob",
- "lazy_static",
- "mime_guess",
- "predicates",
- "regex",
- "reqwest",
- "rhai",
- "sanitize-filename",
- "serde",
- "serde_json",
- "serde_yaml",
- "sha2",
- "tempfile",
- "thiserror 2.0.0",
- "tokio",
- "tower",
- "tracing",
- "tracing-subscriber",
- "urlencoding",
- "uuid",
 ]
 
 [[package]]
@@ -1934,6 +1896,44 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
+]
+
+[[package]]
+name = "rust-cli-app"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "axum",
+ "axum-extra",
+ "axum-test",
+ "bigdecimal",
+ "chrono",
+ "clap",
+ "diesel",
+ "dotenv",
+ "draftsmith_render",
+ "futures",
+ "glob",
+ "lazy_static",
+ "mime_guess",
+ "predicates",
+ "regex",
+ "reqwest",
+ "rhai",
+ "sanitize-filename",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sha2",
+ "tempfile",
+ "thiserror 2.0.0",
+ "tokio",
+ "tower",
+ "tracing",
+ "tracing-subscriber",
+ "urlencoding",
+ "uuid",
 ]
 
 [[package]]
