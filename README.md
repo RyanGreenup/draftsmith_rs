@@ -13,6 +13,9 @@ Draftsmith is a modern note-taking and task management system built with a focus
 
 Most importantly, Draftsmith is hackable! It allows both client side scripting in Javascript with no HTML sanitization and server side scripting in [Rhai](https://rhai.rs/book/about/index.html) (with built in functions registed directly from the server). This flexibility makes a great thinking space to tinker with ideas and automate workflows.
 
+See the [Documentation](https://ryangreenup.github.io/draftsmith_docs/) for more information.
+
+
 
 ## Installation
 
