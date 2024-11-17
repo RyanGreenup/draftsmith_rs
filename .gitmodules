@@ -13,3 +13,6 @@
 [submodule "draftsmith_axum_web-app"]
 	path = draftsmith_axum_web-app
 	url = https://github.com/RyanGreenup/draftsmith_axum_web-app
+[submodule "draftsmith_textual"]
+	path = draftsmith_textual
+	url = https://github.com/RyanGreenup/draftsmith_textual
