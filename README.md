@@ -7,6 +7,7 @@ Meta Repository for Draftsmith.
 ## What is Draftsmith?
 
 <p><img src="./assets/tui_and_web-app-screenshot.png" style="float: right; width: 160px" /></p>
+<p><img src="./assets/tui_and_web-app-screenshot.png" style="float: right; width: 160px" /></p>
 
 
 Draftsmith is a modern note-taking and task management system built with a focus on performance, type safety, and flexibility. It allows you to organize your thoughts, tasks, and knowledge in a hierarchical structure while maintaining relationships between different pieces of information through tags and parent-child relationships.
