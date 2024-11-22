@@ -753,12 +753,8 @@ dependencies = [
  "clap",
  "include_dir",
  "lazy_static",
- "mime_guess",
  "minijinja",
  "once_cell",
- "rust-cli-app",
- "serde",
- "serde_json",
  "templates",
  "tokio",
 ]
